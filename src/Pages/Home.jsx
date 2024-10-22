@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { FaPizzaSlice, FaShoppingCart, FaEye } from "react-icons/fa"; // Importamos el ícono de pizza y otros íconos que ya usas
-
+import { FaPizzaSlice, FaShoppingCart, FaEye } from "react-icons/fa";
 const Home = () => {
   const [pizzas, setPizzas] = useState([]);
   const [cart, setCart] = useState(() => {
-    // Cargamos el carrito desde localStorage
+    // Cargar el carrito desde localStorage
     const savedCart = localStorage.getItem("cart");
     return savedCart ? JSON.parse(savedCart) : [];
   });
@@ -40,12 +39,12 @@ const Home = () => {
           : item
       );
       setCart(updatedCart);
-      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Guardamos el carrito en localStorage
+      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Guarda el carrito en localStorage
     } else {
       // Si la pizza no está en el carrito, la agregamos
       const updatedCart = [...cart, { ...pizza, quantity: 1 }];
       setCart(updatedCart);
-      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Guardamos el carrito en localStorage
+      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Guarda el carrito en localStorage
     }
   };
 
